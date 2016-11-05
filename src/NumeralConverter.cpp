@@ -14,6 +14,10 @@ std::string NumeralConverter::ArabicToRoman ( int arabic_num )
 {
     if ( arabic_num == 1 )
     {
-    return "I";
+        return "I";
+    }
+    else
+    {
+        return "II";
     }
 }
