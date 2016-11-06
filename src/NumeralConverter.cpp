@@ -12,12 +12,16 @@
 
 std::string NumeralConverter::ArabicToRoman ( int arabic_num )
 {
-    if ( arabic_num == 1 )
+    std::string roman_num;
+    
+    while ( arabic_num > 0 )
     {
-        return "I";
+        if( arabic_num <= 3 )
+        {
+            roman_num += "I";
+            arabic_num -= 1;
+        }
     }
-    else
-    {
-        return "II";
-    }
+    
+    return roman_num;
 }
