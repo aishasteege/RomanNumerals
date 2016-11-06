@@ -56,4 +56,9 @@ TEST_F( ArabicToRoman, hundreds )
     ASSERT_STREQ( "CMXCIX", c.ArabicToRoman(999).c_str() );
     ASSERT_STREQ( "M", c.ArabicToRoman(1000).c_str() );
 }
-//todo:out of range values -1 and 5000
+
+TEST_F( ArabicToRoman, ArabicToRomanCapConversionAt4999 )
+{
+  	ASSERT_STREQ( "MMMMCMXCIX", c.ArabicToRoman(4999).c_str() );
+    ASSERT_STREQ( "MMMMCMXCIX", c.ArabicToRoman(5000).c_str() ); 
+}

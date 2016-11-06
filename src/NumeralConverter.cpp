@@ -14,6 +14,11 @@ std::string NumeralConverter::ArabicToRoman ( int arabic_num )
 {
     std::string roman_num;
     
+    if( arabic_num >= 4999 )
+	{
+		arabic_num = 4999;
+	}
+    
 	int arabic_hundreds = ( arabic_num / 100 );
 	int arabic_tens = ( arabic_num / 10 ) % 10;
 	int arabic_ones = arabic_num % 10;
