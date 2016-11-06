@@ -14,9 +14,11 @@ std::string NumeralConverter::ArabicToRoman ( int arabic_num )
 {
     std::string roman_num;
     
+	int arabic_hundreds = ( arabic_num / 100 );
 	int arabic_tens = ( arabic_num / 10 ) % 10;
 	int arabic_ones = arabic_num % 10;
     
+	roman_num += BasicRomanConversion( 'C', 'D', 'M', arabic_hundreds );
 	roman_num += BasicRomanConversion( 'X', 'L', 'C', arabic_tens );
 	roman_num += BasicRomanConversion( 'I', 'V', 'X', arabic_ones );
 
