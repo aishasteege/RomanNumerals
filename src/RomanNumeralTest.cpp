@@ -62,3 +62,9 @@ TEST_F( ArabicToRoman, ArabicToRomanCapConversionAt4999 )
   	ASSERT_STREQ( "MMMMCMXCIX", c.ArabicToRoman(4999).c_str() );
     ASSERT_STREQ( "MMMMCMXCIX", c.ArabicToRoman(5000).c_str() ); 
 }
+
+TEST_F( ArabicToRoman, ArabicToRomanNoNegativeNumbers )
+{
+  	ASSERT_STREQ( "", c.ArabicToRoman(-1).c_str() );
+    ASSERT_STREQ( "", c.ArabicToRoman(0).c_str() ); 
+}
