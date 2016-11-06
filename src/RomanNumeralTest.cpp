@@ -27,4 +27,13 @@ TEST_F( ArabicToRoman, SixThoughTen )
     ASSERT_STREQ( "IX", c.ArabicToRoman(9).c_str() );
     ASSERT_STREQ( "X", c.ArabicToRoman(10).c_str() );
 }
+
+TEST_F( ArabicToRoman, Teens )
+{
+    ASSERT_STREQ( "XI", c.ArabicToRoman(11).c_str() );
+    ASSERT_STREQ( "XIV", c.ArabicToRoman(14).c_str() );
+    ASSERT_STREQ( "XV", c.ArabicToRoman(15).c_str() );
+    ASSERT_STREQ( "XVIII", c.ArabicToRoman(18).c_str() );
+    ASSERT_STREQ( "XIX", c.ArabicToRoman(19).c_str() );
+}
 //todo:out of range values -1 and 5000
