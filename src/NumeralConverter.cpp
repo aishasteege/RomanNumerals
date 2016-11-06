@@ -21,6 +21,16 @@ std::string NumeralConverter::ArabicToRoman ( int arabic_num )
             roman_num += "I";
             arabic_num -= 1;
         }
+        else if ( arabic_num == 4 )
+        {
+            roman_num += "I";
+            arabic_num += 1;
+        }
+        else if ( arabic_num == 5 )
+        {
+            roman_num += "V";
+            arabic_num -= 5;
+        }
     }
     
     return roman_num;
