@@ -36,4 +36,14 @@ TEST_F( ArabicToRoman, Teens )
     ASSERT_STREQ( "XVIII", c.ArabicToRoman(18).c_str() );
     ASSERT_STREQ( "XIX", c.ArabicToRoman(19).c_str() );
 }
+
+TEST_F( ArabicToRoman, Tens )
+{
+    ASSERT_STREQ( "XXI", c.ArabicToRoman(21).c_str() );
+    ASSERT_STREQ( "XL", c.ArabicToRoman(40).c_str() );   
+    ASSERT_STREQ( "L", c.ArabicToRoman(50).c_str() );
+    ASSERT_STREQ( "LXXV", c.ArabicToRoman(75).c_str() );
+    ASSERT_STREQ( "LXXXIV", c.ArabicToRoman(84).c_str() );
+    ASSERT_STREQ( "XCIX", c.ArabicToRoman(99).c_str() );
+}
 //todo:out of range values -1 and 5000
