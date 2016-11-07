@@ -12,6 +12,7 @@
 
 using namespace std;
 
+///=============================================================================
 int NumeralConverter::RomanToArabic( string roman_num )
 {
 	int arabic_num = 0;
@@ -49,13 +50,17 @@ int NumeralConverter::RomanToArabic( string roman_num )
     return arabic_num;
 }
 
+///=============================================================================
+/// convert an arabic number to roman numerals 
+/// \param[in] int 	arabic_number ( 0 - 3999 )
+/// \return string	the roman numeral representation	
 string NumeralConverter::ArabicToRoman ( int arabic_num )
 {
     string roman_num;
     
-    if ( arabic_num >= 4999 )
+    if ( arabic_num >= 3999 )
 	{
-		arabic_num = 4999;
+		arabic_num = 3999;
 	}
     
 	int arabic_hundreds = ( arabic_num / 100 );
@@ -69,7 +74,15 @@ string NumeralConverter::ArabicToRoman ( int arabic_num )
     return roman_num;
 }
 
-string NumeralConverter::BasicRomanConversion( char one, char five, char ten, int arabic_num )
+///=============================================================================
+/// convert an arabic number to roman numerals 
+/// \param[in] one			string to represent one of the power of 10 
+/// \param[in] five			string to represent five of the power of 10
+/// \param[in] ten			string to represent ten of the power of 10
+/// \param[in] arabic_num	int number to be converted devided by the power of 10 
+///							being represented ( accurate for 0-39 )
+string NumeralConverter::BasicRomanConversion( char one, char five, char ten,
+	int arabic_num )
 {
     string roman_num;
     

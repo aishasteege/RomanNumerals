@@ -21,7 +21,7 @@ main()
     int arabic = 0;
     
     cout << "\nWelcome to the Roman Numeral Converter\n\n";    
-    cout << "Please enter a number (1-4999) to be converted\n";
+    cout << "Please enter a number (1-3999) to be converted\n";
     cout << "Arabic: ";
     std::getline ( std::cin, input );    
     std::stringstream( input ) >> arabic;
