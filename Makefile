@@ -38,7 +38,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 
 # House-keeping build targets.
 
-all : $(TESTS)
+all : $(TESTS) main
 
 clean :
 	rm -f $(TESTS) gtest.a gtest_main.a *.o
@@ -71,6 +71,9 @@ gtest_main.a : gtest-all.o gtest_main.o
 # gtest_main.a, depending on whether it defines its own main()
 # function.
 
+main.o : $(USER_DIR)/main.cpp
+	g++ -c $(USER_DIR)/main.cpp
+
 NumeralConverter.o : $(USER_DIR)/NumeralConverter.cpp $(USER_DIR)/NumeralConverter.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/NumeralConverter.cpp
 
@@ -79,4 +82,7 @@ RomanNumeralTest.o : $(USER_DIR)/RomanNumeralTest.cpp \
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/RomanNumeralTest.cpp
 
 RomanNumeralTest : NumeralConverter.o RomanNumeralTest.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
+main : main.o NumeralConverter.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
