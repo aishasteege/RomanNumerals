@@ -18,11 +18,19 @@ int NumeralConverter::RomanToArabic( string roman_num )
 
 	while ( roman_num.size() > 0 )
 	{
-	    if ( toupper( roman_num[0] ) == 'I' )
-	    {
-	    	arabic_num += 1;
-	    	roman_num.erase ( roman_num.begin() );
-	    }
+		switch ( toupper( roman_num[0] ) )
+		{
+			case 'I':
+		    	arabic_num += 1;
+		    	break;
+		    case 'V':
+		    	arabic_num += 5;
+		    	break;
+	    	default:
+	    		//the string is invalid
+	    		return 0;
+		}
+    	roman_num.erase( roman_num.begin() );
 	}
 
     return arabic_num;
