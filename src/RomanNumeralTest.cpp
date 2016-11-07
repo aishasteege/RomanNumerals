@@ -80,4 +80,12 @@ class RomanToArabic : public ::testing::Test {
 TEST_F( RomanToArabic, one)
 {
   	ASSERT_EQ( 1, c.RomanToArabic( "I" ) );
+  	ASSERT_EQ( 1, c.RomanToArabic( "i" ) );
+}
+
+
+TEST_F( RomanToArabic, two)
+{
+  	ASSERT_EQ( 2, c.RomanToArabic( "II" ) );
+  	ASSERT_EQ( 2, c.RomanToArabic( "ii" ) );
 }

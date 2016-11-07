@@ -14,9 +14,18 @@ using namespace std;
 
 int NumeralConverter::RomanToArabic( string roman_num )
 {
-    (void) roman_num;
+	int arabic_num = 0;
 
-    return 1;
+	while ( roman_num.size() > 0 )
+	{
+	    if ( toupper( roman_num[0] ) == 'I' )
+	    {
+	    	arabic_num += 1;
+	    	roman_num.erase ( roman_num.begin() );
+	    }
+	}
+
+    return arabic_num;
 }
 
 string NumeralConverter::ArabicToRoman ( int arabic_num )
