@@ -12,11 +12,18 @@
 
 using namespace std;
 
+int NumeralConverter::RomanToArabic( string roman_num )
+{
+    (void) roman_num;
+
+    return 1;
+}
+
 string NumeralConverter::ArabicToRoman ( int arabic_num )
 {
     string roman_num;
     
-    if( arabic_num >= 4999 )
+    if ( arabic_num >= 4999 )
 	{
 		arabic_num = 4999;
 	}

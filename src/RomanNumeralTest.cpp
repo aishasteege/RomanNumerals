@@ -68,3 +68,16 @@ TEST_F( ArabicToRoman, ArabicToRomanNoNegativeNumbers )
   	ASSERT_STREQ( "", c.ArabicToRoman(-1).c_str() );
     ASSERT_STREQ( "", c.ArabicToRoman(0).c_str() ); 
 }
+
+class RomanToArabic : public ::testing::Test {
+ protected:
+  // virtual void SetUp() {}
+  // virtual void TearDown() {}
+
+    NumeralConverter c;
+};
+
+TEST_F( RomanToArabic, one)
+{
+  	ASSERT_EQ( 1, c.RomanToArabic( "I" ) );
+}
