@@ -31,6 +31,9 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 # created to the list.
 TESTS = RomanNumeralTest
 
+# all the things
+ALL = $(TESTS) main
+
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
@@ -38,10 +41,10 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 
 # House-keeping build targets.
 
-all : $(TESTS) main
+all : $(ALL)
 
 clean :
-	rm -f $(TESTS) gtest.a gtest_main.a *.o
+	rm -f $(ALL) gtest.a gtest_main.a *.o
 
 # Builds gtest.a and gtest_main.a.
 
