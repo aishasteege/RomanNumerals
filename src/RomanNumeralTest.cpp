@@ -92,3 +92,11 @@ TEST_F( RomanToArabic, oneThroughfive)
   	ASSERT_EQ( 5, c.RomanToArabic( "V" ) );
   	ASSERT_EQ( 5, c.RomanToArabic( "v" ) );
 }
+
+TEST_F( RomanToArabic, sixThroughTen )
+{
+	ASSERT_EQ( 6, c.RomanToArabic( "Vi" ) );
+	ASSERT_EQ( 8, c.RomanToArabic( "viii" ) );
+	ASSERT_EQ( 9, c.RomanToArabic( "iX" ) );
+	ASSERT_EQ( 10, c.RomanToArabic( "x" ) );
+}

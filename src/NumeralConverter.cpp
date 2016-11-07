@@ -25,7 +25,8 @@ int NumeralConverter::RomanToArabic( string roman_num )
 				character_conversion = 1;
 				if ( roman_num.size() > 1 )
 				{
-					if ( toupper( roman_num[1] ) == 'V' )
+					if ( toupper( roman_num[1] ) == 'V' || 
+						 toupper( roman_num[1] ) == 'X' )
 					{
 		    			character_conversion = -1;
 					}
@@ -35,6 +36,9 @@ int NumeralConverter::RomanToArabic( string roman_num )
 		    case 'V':
 		    	arabic_num += 5;
 		    	break;
+		    case 'X':
+		    	arabic_num += 10;
+		    	break;	    	
 	    	default:
 	    		//the string is invalid
 	    		return 0;
