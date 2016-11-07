@@ -12,12 +12,14 @@
 
 #include <string>
 
+using namespace std;
+
 class NumeralConverter {
 public:
-	std::string ArabicToRoman( int arabic_num );
-	
+	string ArabicToRoman( int arabic_num );
+
 private:
-	std::string BasicRomanConversion( char one, char five, char ten, int arabic_numeral );
+	string BasicRomanConversion( char one, char five, char ten, int arabic_numeral );
 };
 
 #endif /* SRC_NUMERALCONVERTER_H_ */

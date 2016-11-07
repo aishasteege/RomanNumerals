@@ -10,9 +10,11 @@
 
 #include "NumeralConverter.h"
 
-std::string NumeralConverter::ArabicToRoman ( int arabic_num )
+using namespace std;
+
+string NumeralConverter::ArabicToRoman ( int arabic_num )
 {
-    std::string roman_num;
+    string roman_num;
     
     if( arabic_num >= 4999 )
 	{
@@ -30,10 +32,9 @@ std::string NumeralConverter::ArabicToRoman ( int arabic_num )
     return roman_num;
 }
 
-
-std::string NumeralConverter::BasicRomanConversion( char one, char five, char ten, int arabic_num )
+string NumeralConverter::BasicRomanConversion( char one, char five, char ten, int arabic_num )
 {
-    std::string roman_num;
+    string roman_num;
     
 	while ( arabic_num > 0 )
 	{
