@@ -18,14 +18,35 @@ main()
 {
     NumeralConverter converter;
     std::string input ("0");
-    int arabic = 0;
     
     cout << "\nWelcome to the Roman Numeral Converter\n\n";    
-    cout << "Please enter a number (1-3999) to be converted\n";
-    cout << "Arabic: ";
+    cout << "Would you like to convert \n   (1) roman to arabic\n   (2) arabic to roman \n ";    
+    
+    int selection = 0;
     std::getline ( std::cin, input );    
-    std::stringstream( input ) >> arabic;
-    cout << "Roman : " << converter.ArabicToRoman( arabic ) << endl;
+    std::stringstream( input ) >> selection;
+    
+    if ( selection == 1)
+    {
+	    cout << "Please enter a number (I-MMMCMXCIX) to be converted\n";
+	    cout << "Roman : ";
+	    std::string roman;
+	    std::getline ( std::cin, roman );    
+	    cout << "Arabic: " << converter.RomanToArabic( roman ) << endl;
+    }
+    else if ( selection == 2 )
+    {
+	    cout << "Please enter a number (1-3999) to be converted\n";
+	    cout << "Arabic: ";
+    	int arabic = 0;
+    	std::getline ( std::cin, input );    
+	    std::stringstream( input ) >> arabic;
+	    cout << "Roman : " << converter.ArabicToRoman( arabic ) << endl;
+    }
+    else
+    {
+    	cout << "Im sorry, that selection was invalid";
+    }
     
     return 0;
 }

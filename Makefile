@@ -73,7 +73,7 @@ gtest_main.a : gtest-all.o gtest_main.o
 # Builds a sample test.  A test should link with either gtest.a or
 # gtest_main.a, depending on whether it defines its own main()
 # function.
-
+git sta
 main.o : $(USER_DIR)/main.cpp
 	g++ -c $(USER_DIR)/main.cpp
 

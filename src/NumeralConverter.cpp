@@ -104,7 +104,7 @@ bool NumeralConverter::ValidateRomanString( string roman_num )
 	//test that there are not too many of same character in a row
 	if( roman_num.size() >= 4)
 	{
-		for ( unsigned int i = 0; i < (roman_num.size() - 4); i++ )
+		for ( unsigned int i = 0; i < (roman_num.size() - 3); i++ )
 		{
 			//4 in a row is always invalid
 			if ( roman_num[i] == roman_num[i+1] &&
@@ -117,20 +117,23 @@ bool NumeralConverter::ValidateRomanString( string roman_num )
 	}
 	
 	//test that there are not too many of same character in a row
-	for ( unsigned int i = 0; i < (roman_num.size() - 2); i++ )
+	if( roman_num.size() >= 2)
 	{
-		if ( roman_num[i] == roman_num[i+1] )
+		for ( unsigned int i = 0; i < (roman_num.size() - 1); i++ )
 		{
-			int arabic = ConvertRomanChar(roman_num[i]);
-			
-			//2 'fives' in a row is invalid 
-			if ( (arabic == 5) || (arabic == 50) || (arabic == 500) )
+			if ( roman_num[i] == roman_num[i+1] )
 			{
-				return false;
+				int arabic = ConvertRomanChar(roman_num[i]);
+				
+				//2 'fives' in a row is invalid 
+				if ( (arabic == 5) || (arabic == 50) || (arabic == 500) )
+				{
+					return false;
+				}	
 			}	
-		}	
-	}
-	
+		}
+}
+
 	return true;
 }
 

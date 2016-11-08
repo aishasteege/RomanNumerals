@@ -149,5 +149,5 @@ TEST_F( RomanToArabic, CheckValidNumberOfChars )
 TEST_F( RomanToArabic, CheckRangeOfString )
 {
 	ASSERT_EQ( 3999, c.RomanToArabic( "MMMCMXCIX" ) );
-	ASSERT_EQ( 3999, c.RomanToArabic( "MMMM" ) );
+	ASSERT_EQ( 0, c.RomanToArabic( "MMMM" ) );
 }
