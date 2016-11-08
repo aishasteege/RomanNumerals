@@ -20,6 +20,7 @@ public:
 	string ArabicToRoman( int arabic_num );
 	
 private:
+	int ConvertRomanChar( char roman_numeral );
 	string BasicRomanConversion( char one, char five, char ten, int arabic_numeral );
 };
 

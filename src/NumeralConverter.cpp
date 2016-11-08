@@ -13,41 +13,61 @@
 using namespace std;
 
 ///=============================================================================
+/// convert an arabic number to roman numerals 
+/// \param[in] string	a roman numeral representation
+/// \return int 		arabic_number
 int NumeralConverter::RomanToArabic( string roman_num )
 {
 	int arabic_num = 0;
 
-	while ( roman_num.size() > 0 )
+	//todo validate roman string
+	// if invalid return 0
+	
+	for ( unsigned int i = 0; i < roman_num.size(); i++)
 	{
-		int character_conversion;
-		switch ( toupper( roman_num[0] ) )
+		if ( i < ( roman_num.size() - 1 ) )
 		{
-			case 'I':
-				character_conversion = 1;
-				if ( roman_num.size() > 1 )
-				{
-					if ( toupper( roman_num[1] ) == 'V' || 
-						 toupper( roman_num[1] ) == 'X' )
-					{
-		    			character_conversion = -1;
-					}
-				}
-				arabic_num += character_conversion;
-		    	break;
-		    case 'V':
-		    	arabic_num += 5;
-		    	break;
-		    case 'X':
-		    	arabic_num += 10;
-		    	break;	    	
-	    	default:
-	    		//the string is invalid
-	    		return 0;
+			//if first character is less than the next its subtraction
+			if ( ConvertRomanChar( toupper( roman_num[i] ) ) < 
+				 ConvertRomanChar( toupper( roman_num[i+1] ) ) )
+			{
+				arabic_num -= ConvertRomanChar( toupper( roman_num[i] ) );
+			}
+			else
+			{
+				arabic_num += ConvertRomanChar( toupper( roman_num[i] ) );	
+			}
 		}
-    	roman_num.erase( roman_num.begin() );
+		else
+		{
+			arabic_num += ConvertRomanChar( toupper( roman_num[i] ) );	
+		}
+		
 	}
-
     return arabic_num;
+}
+
+int NumeralConverter::ConvertRomanChar( char roman_numeral )
+{
+	switch ( roman_numeral )
+	{
+		case 'I':
+			return 1;
+		case 'V':
+			return 5;
+		case 'X':
+			return 10;
+		case 'L':
+			return 50;
+		case 'C':
+			return 100;
+		case 'D':
+			return 500;
+		case 'M':
+			return 1000;
+		default:
+			return 0;
+	}
 }
 
 ///=============================================================================
