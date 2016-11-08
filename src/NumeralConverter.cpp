@@ -15,13 +15,16 @@ using namespace std;
 ///=============================================================================
 /// convert an arabic number to roman numerals 
 /// \param[in] string	a roman numeral representation
-/// \return int 		arabic_number
+/// \return int 		arabic_number, or zero if string is invalid
 int NumeralConverter::RomanToArabic( string roman_num )
 {
 	int arabic_num = 0;
 
-	//todo validate roman string
-	// if invalid return 0
+	if ( !ValidateRomanString( roman_num ) )
+	{
+		// invalid string, return zero
+		return 0;
+	}
 	
 	for ( unsigned int i = 0; i < roman_num.size(); i++)
 	{
@@ -68,6 +71,19 @@ int NumeralConverter::ConvertRomanChar( char roman_numeral )
 		default:
 			return 0;
 	}
+}
+
+///=============================================================================
+bool NumeralConverter::ValidateRomanString( string roman_num )
+{
+	for ( unsigned int i = 0; i < roman_num.size(); i++ )
+	{
+		if ( ConvertRomanChar( toupper( roman_num[i] ) ) == 0 )
+		{
+			return false;
+		}
+	}
+	return true;
 }
 
 ///=============================================================================

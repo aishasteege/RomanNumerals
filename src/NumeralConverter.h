@@ -16,10 +16,11 @@ using namespace std;
 
 class NumeralConverter {
 public:
-	int RomanToArabic( string arabic_num );
+	int RomanToArabic( string roman_num );
 	string ArabicToRoman( int arabic_num );
 	
 private:
+	bool ValidateRomanString( string roman_num );
 	int ConvertRomanChar( char roman_numeral );
 	string BasicRomanConversion( char one, char five, char ten, int arabic_numeral );
 };
