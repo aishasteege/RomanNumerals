@@ -121,6 +121,15 @@ TEST_F( RomanToArabic, tens )
 	ASSERT_EQ( 100, c.RomanToArabic( "C" ) );
 }
 
+
+TEST_F( RomanToArabic, hundreds )
+{
+	ASSERT_EQ( 300, c.RomanToArabic( "ccC" ) );
+	ASSERT_EQ( 500, c.RomanToArabic( "D" ) );
+	ASSERT_EQ( 1000, c.RomanToArabic( "M" ) );
+	ASSERT_EQ( 1400, c.RomanToArabic( "MCD" ) );
+}
+
 TEST_F( RomanToArabic, ValidateString )
 {
 	ASSERT_EQ( 0, c.RomanToArabic( "" ) );
