@@ -169,9 +169,9 @@ string NumeralConverter::ArabicToRoman ( int arabic_num )
 {
     string roman_num;
     
-    if ( arabic_num >= 3999 )
+    if ( arabic_num > 3999 )
 	{
-		arabic_num = 3999;
+		return "";
 	}
     
 	int arabic_hundreds = ( arabic_num / 100 );

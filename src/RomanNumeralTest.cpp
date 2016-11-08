@@ -60,7 +60,7 @@ TEST_F( ArabicToRoman, hundreds )
 TEST_F( ArabicToRoman, ArabicToRomanCapConversionAt3999 )
 {
   	ASSERT_STREQ( "MMMCMXCIX", c.ArabicToRoman(3999).c_str() );
-    ASSERT_STREQ( "MMMCMXCIX", c.ArabicToRoman(4000).c_str() ); 
+    ASSERT_STREQ( "", c.ArabicToRoman(4000).c_str() ); 
 }
 
 TEST_F( ArabicToRoman, ArabicToRomanNoNegativeNumbers )
@@ -120,7 +120,6 @@ TEST_F( RomanToArabic, tens )
 	ASSERT_EQ( 90, c.RomanToArabic( "XC" ) );
 	ASSERT_EQ( 100, c.RomanToArabic( "C" ) );
 }
-
 
 TEST_F( RomanToArabic, hundreds )
 {
