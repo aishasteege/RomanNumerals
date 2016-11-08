@@ -76,6 +76,7 @@ int NumeralConverter::ConvertRomanChar( char roman_numeral )
 ///=============================================================================
 bool NumeralConverter::ValidateRomanString( string roman_num )
 {
+	//test for invalid characters
 	for ( unsigned int i = 0; i < roman_num.size(); i++ )
 	{
 		if ( ConvertRomanChar( toupper( roman_num[i] ) ) == 0 )
@@ -83,8 +84,36 @@ bool NumeralConverter::ValidateRomanString( string roman_num )
 			return false;
 		}
 	}
+	
+	for ( unsigned int i = 0; i < (roman_num.size() - 1); i++ )
+	{
+		if ( !CheckValidRomanSubString( toupper( roman_num[i] ) , 
+										toupper( roman_num[i+1] ) ) )
+		{
+			return false;
+		}
+	}
+	
 	return true;
 }
+
+bool NumeralConverter::CheckValidRomanSubString( char first, char second )
+{
+	if ( ConvertRomanChar( first ) < ConvertRomanChar( second ) )
+	{
+		if ( ( (first == 'I') && ( (second == 'V') || (second == 'X') ) ) || 
+		     ( (first == 'X') && ( (second == 'L') || (second == 'C') ) ) ||
+		     ( (first == 'C') && ( (second == 'D') || (second == 'M') ) ) )
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	return true;
+}
+
+
 
 ///=============================================================================
 /// convert an arabic number to roman numerals 

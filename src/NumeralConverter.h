@@ -21,6 +21,7 @@ public:
 	
 private:
 	bool ValidateRomanString( string roman_num );
+	bool CheckValidRomanSubString( char first, char second );
 	int ConvertRomanChar( char roman_numeral );
 	string BasicRomanConversion( char one, char five, char ten, int arabic_numeral );
 };

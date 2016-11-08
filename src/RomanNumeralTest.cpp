@@ -106,7 +106,7 @@ TEST_F( RomanToArabic, ValidateString )
 {
 	ASSERT_EQ( 0, c.RomanToArabic( "" ) );
 	ASSERT_EQ( 0, c.RomanToArabic( "invalidChars" ) );
-//	ASSERT_EQ( 0, c.RomanToArabic( "vximdc" ) );
-//	ASSERT_EQ( 0, c.RomanToArabic( "vx" ) );
+	ASSERT_EQ( 0, c.RomanToArabic( "vximdc" ) );
+	ASSERT_EQ( 0, c.RomanToArabic( "vx" ) );
 }
 
