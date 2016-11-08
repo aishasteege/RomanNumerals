@@ -103,6 +103,24 @@ TEST_F( RomanToArabic, sixThroughTen )
 	ASSERT_EQ( 10, c.RomanToArabic( "x" ) );
 }
 
+TEST_F( RomanToArabic, teens )
+{
+	ASSERT_EQ( 11, c.RomanToArabic( "Xi" ) );
+	ASSERT_EQ( 14, c.RomanToArabic( "xIv" ) );
+	ASSERT_EQ( 18, c.RomanToArabic( "xviii" ) );
+	ASSERT_EQ( 19, c.RomanToArabic( "XiX" ) );
+	ASSERT_EQ( 20, c.RomanToArabic( "xx" ) );
+}
+
+TEST_F( RomanToArabic, tens )
+{
+	ASSERT_EQ( 34, c.RomanToArabic( "xxxiv" ) );
+	ASSERT_EQ( 40, c.RomanToArabic( "XL" ) );
+	ASSERT_EQ( 50, c.RomanToArabic( "L" ) );
+	ASSERT_EQ( 90, c.RomanToArabic( "XC" ) );
+	ASSERT_EQ( 100, c.RomanToArabic( "C" ) );
+}
+
 TEST_F( RomanToArabic, ValidateString )
 {
 	ASSERT_EQ( 0, c.RomanToArabic( "" ) );
