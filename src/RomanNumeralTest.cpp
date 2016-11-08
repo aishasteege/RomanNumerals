@@ -138,3 +138,16 @@ TEST_F( RomanToArabic, ValidateString )
 	ASSERT_EQ( 0, c.RomanToArabic( "vx" ) );
 }
 
+TEST_F( RomanToArabic, CheckValidNumberOfChars )
+{
+	ASSERT_EQ( 0, c.RomanToArabic( "iiii" ) );
+	ASSERT_EQ( 0, c.RomanToArabic( "vv" ) );
+	ASSERT_EQ( 0, c.RomanToArabic( "xxxx" ) );
+	ASSERT_EQ( 0, c.RomanToArabic( "ll" ) );
+}
+
+//TEST_F( RomanToArabic, CheckRangeOfString )
+//{
+//	ASSERT_EQ( 3999, c.RomanToArabic( "MMMCMXCIX" ) );
+//	ASSERT_EQ( 3999, c.RomanToArabic( "MMMM" ) );
+//}
