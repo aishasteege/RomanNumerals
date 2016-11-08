@@ -31,28 +31,32 @@ int NumeralConverter::RomanToArabic( string roman_num )
 		if ( i < ( roman_num.size() - 1 ) )
 		{
 			//if first character is less than the next its subtraction
-			if ( ConvertRomanChar( toupper( roman_num[i] ) ) < 
-				 ConvertRomanChar( toupper( roman_num[i+1] ) ) )
+			if ( ConvertRomanChar( roman_num[i] ) < 
+				 ConvertRomanChar( roman_num[i+1] ) )
 			{
-				arabic_num -= ConvertRomanChar( toupper( roman_num[i] ) );
+				arabic_num -= ConvertRomanChar( roman_num[i] );
 			}
 			else
 			{
-				arabic_num += ConvertRomanChar( toupper( roman_num[i] ) );	
+				arabic_num += ConvertRomanChar( roman_num[i] );	
 			}
 		}
 		else
 		{
-			arabic_num += ConvertRomanChar( toupper( roman_num[i] ) );	
+			arabic_num += ConvertRomanChar( roman_num[i] );	
 		}
 		
 	}
     return arabic_num;
 }
 
+///=============================================================================
+/// convert a roman numeral character
+///\param[in] string	roman numeral character string
+///\return bool			true if the string is a valid roman numeral string
 int NumeralConverter::ConvertRomanChar( char roman_numeral )
 {
-	switch ( roman_numeral )
+	switch ( toupper( roman_numeral ) )
 	{
 		case 'I':
 			return 1;
@@ -74,21 +78,24 @@ int NumeralConverter::ConvertRomanChar( char roman_numeral )
 }
 
 ///=============================================================================
+/// check that the roman numeral string is has valid ordering and valid chars
+///\param[in] string	roman numeral character string
+///\return bool			true if the string is a valid roman numeral string
 bool NumeralConverter::ValidateRomanString( string roman_num )
 {
 	//test for invalid characters
 	for ( unsigned int i = 0; i < roman_num.size(); i++ )
 	{
-		if ( ConvertRomanChar( toupper( roman_num[i] ) ) == 0 )
+		if ( ConvertRomanChar( roman_num[i] ) == 0 )
 		{
 			return false;
 		}
 	}
 	
+	//test for correct character ordering
 	for ( unsigned int i = 0; i < (roman_num.size() - 1); i++ )
 	{
-		if ( !CheckValidRomanSubString( toupper( roman_num[i] ) , 
-										toupper( roman_num[i+1] ) ) )
+		if ( !CheckValidRomanSubString( roman_num[i], roman_num[i+1] ) )
 		{
 			return false;
 		}
@@ -97,8 +104,16 @@ bool NumeralConverter::ValidateRomanString( string roman_num )
 	return true;
 }
 
+///=============================================================================
+/// check that the two characters are in a valid order 
+///\param[in] char 		first roman numeral character 
+///\param[in] char 		second roman numeral character
+///\return bool			true if the characters ordering
 bool NumeralConverter::CheckValidRomanSubString( char first, char second )
 {
+	first = toupper( first );
+	second = toupper( second );
+	
 	if ( ConvertRomanChar( first ) < ConvertRomanChar( second ) )
 	{
 		if ( ( (first == 'I') && ( (second == 'V') || (second == 'X') ) ) || 
@@ -112,8 +127,6 @@ bool NumeralConverter::CheckValidRomanSubString( char first, char second )
 	
 	return true;
 }
-
-
 
 ///=============================================================================
 /// convert an arabic number to roman numerals 

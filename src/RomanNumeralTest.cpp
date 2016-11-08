@@ -87,7 +87,8 @@ TEST_F( RomanToArabic, oneThroughfive)
   	
   	ASSERT_EQ( 3, c.RomanToArabic( "IiI" ) );
   	
-  	ASSERT_EQ( 4, c.RomanToArabic( "IV" ) );
+  	ASSERT_EQ( 4, c.RomanToArabic( "IV" ) );  	
+  	ASSERT_EQ( 4, c.RomanToArabic( "iV" ) );
 
   	ASSERT_EQ( 5, c.RomanToArabic( "V" ) );
   	ASSERT_EQ( 5, c.RomanToArabic( "v" ) );
